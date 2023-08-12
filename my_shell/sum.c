@@ -7,7 +7,9 @@ int main ()
     i = 45;
     j = 56;
     k = 43;
-    int sum = (i + j + k);
+    int sum;
+    
+    sum = (i + j + k);
 
     pid_t pid;
 
