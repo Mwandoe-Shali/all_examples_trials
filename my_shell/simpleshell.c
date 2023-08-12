@@ -14,8 +14,7 @@ ssize_t nread;
 while (1)
 {
 write(STDOUT_FILENO, "($) ", 4);  /* Display prompt */
-
-nread = getline(&line, &len, stdin);
+nread = getline(&line, &len, stdin); /* read user input and store in line */
 if (nread == -1)
 {
 if (feof(stdin))
@@ -27,13 +26,11 @@ perror("getline");
 exit(1);
 }
 line[nread - 1] = '\0'; /* Remove newline character */
-
-pid_t child_pid = fork();
+pid_t child_pid = fork(); /* create child process */
 if (child_pid == 0)
 {
 char *args[] = {line, NULL}; /* Child process */
 execve(line, args, NULL);
-
 perror(line); /* Print error if execve fails */
 exit(1);
 }
