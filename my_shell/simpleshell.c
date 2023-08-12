@@ -7,7 +7,7 @@
 */
 int main(void)
 {
-char *line;
+char *line = NULL;
 size_t len = 0;
 ssize_t nread;
 pid_t child_pid;
@@ -29,7 +29,7 @@ line[nread - 1] = '\0'; /* Remove newline character */
 child_pid = fork(); /* create child process */
 if (child_pid == 0)
 {
-char *args[] = {line = NULL, NULL}; /* Child process */
+char *args[] = {&line, NULL}; /* Child process */
 execve(line, args, NULL);
 perror(line); /* Print error if execve fails */
 exit(1);
