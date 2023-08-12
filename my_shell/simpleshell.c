@@ -16,33 +16,30 @@ while (1)
 write(STDOUT_FILENO, "($) ", 4);  /* Display prompt */
 
 nread = getline(&line, &len, stdin);
-if (nread == -1) {
-if (feof(stdin)) {
+if (nread == -1)
+{
+if (feof(stdin))
+{
 write(STDOUT_FILENO, "\n", 1);  /* Handle end of file (Ctrl+D) */
 break;
 }
 perror("getline");
 exit(1);
 }
-
-/* Remove newline character */
-line[nread - 1] = '\0';
+line[nread - 1] = '\0'; /* Remove newline character */
 
 pid_t child_pid = fork();
 if (child_pid == 0)
 {
-/* Child process */
-char *args[] = {line, NULL};
+char *args[] = {line, NULL}; /* Child process */
 execve(line, args, NULL);
 
-/* Print error if execve fails */
-perror(line);
+perror(line); /* Print error if execve fails */
 exit(1);
 }
 else if (child_pid > 0)
 {
-/* Parent process */
-int status;
+int status; /* Parent process */
 waitpid(child_pid, &status, 0);
 }
 else
@@ -50,8 +47,6 @@ else
 perror("fork");
 }
 }
-
 free(line);  /* Cleanup */
 return (0);
 }
-
