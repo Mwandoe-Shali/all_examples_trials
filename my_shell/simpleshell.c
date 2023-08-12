@@ -10,7 +10,7 @@ int main(void)
 char *line = NULL;
 size_t len = 0;
 ssize_t nread;
-
+pid_t child_pid;
 while (1)
 {
 write(STDOUT_FILENO, "($) ", 4);  /* Display prompt */
@@ -26,7 +26,7 @@ perror("getline");
 exit(1);
 }
 line[nread - 1] = '\0'; /* Remove newline character */
-pid_t child_pid = fork(); /* create child process */
+child_pid = fork(); /* create child process */
 if (child_pid == 0)
 {
 char *args[] = {line, NULL}; /* Child process */
