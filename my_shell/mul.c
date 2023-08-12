@@ -13,5 +13,7 @@ int main(void)
 
     ppid = getppid();
     printf("The ppid for this process is %u\n", ppid);
+
+    return (0);
 }
 
