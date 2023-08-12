@@ -11,7 +11,8 @@ char *line = NULL;
 size_t len = 0;
 ssize_t nread;
 
-while (1) {
+while (1)
+{
 write(STDOUT_FILENO, "($) ", 4);  /* Display prompt */
 
 nread = getline(&line, &len, stdin);
@@ -28,7 +29,8 @@ exit(1);
 line[nread - 1] = '\0';
 
 pid_t child_pid = fork();
-if (child_pid == 0) {
+if (child_pid == 0)
+{
 /* Child process */
 char *args[] = {line, NULL};
 execve(line, args, NULL);
@@ -36,16 +38,20 @@ execve(line, args, NULL);
 /* Print error if execve fails */
 perror(line);
 exit(1);
-} else if (child_pid > 0) {
+}
+else if (child_pid > 0)
+{
 /* Parent process */
 int status;
 waitpid(child_pid, &status, 0);
-} else {
+}
+else
+{
 perror("fork");
 }
 }
 
 free(line);  /* Cleanup */
-return 0;
+return (0);
 }
 
