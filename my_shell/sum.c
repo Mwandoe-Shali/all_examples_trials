@@ -3,11 +3,10 @@
 
 int main ()
 {
-    int i, j, k;
+    int i, j, k, sum;
     i = 45;
     j = 56;
     k = 43;
-    int sum;
     
     sum = (i + j + k);
 
