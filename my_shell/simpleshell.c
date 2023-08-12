@@ -7,7 +7,7 @@
 */
 int main(void)
 {
-char *line = NULL;
+char **line = NULL;
 size_t len = 0;
 ssize_t nread;
 pid_t child_pid;
