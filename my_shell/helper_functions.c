@@ -37,7 +37,8 @@ char *_strcpy(char *dest, const char *src)
 }
 
 /**
- * _memcpy - Copies the contents of the source string to the destination string.
+ * _memcpy - Copies the contents of the source string
+ * to the destination string.
  *
  * @dest: A pointer to the destination string.
  * @src: A pointer to the source string.
@@ -49,11 +50,12 @@ void *_memcpy(void *dest, const void *src, size_t n)
 {
 	/* Check the parameters */
 	if (dest == NULL || src == NULL)
-		return NULL;
+		return (NULL);
 
 	/* Copy the bytes */
 	char *d = (char *) dest;
 	const char *s = (const char *) src;
+	
 	for (size_t i = 0; i < n; i++)
 		d[i] = s[i];
 
@@ -66,17 +68,19 @@ void *_memcpy(void *dest, const void *src, size_t n)
  * _strdup - Duplicates a string.
  * @str: Pointer to the source string.
  *
- * Return: Pointer to the duplicated string, or NULL if memory allocation fails.
+ * Return: Pointer to the duplicated string,
+ * or NULL if memory allocation fails.
  */
 char *_strdup(const char *str)
 {
 	size_t len = _strlen(str) + 1;
-	
+
 	char *dest = (char *) malloc(sizeof(char) * len);
+	
 	if (dest == NULL)
-		return NULL;
+		return (NULL);
 
 	_memcpy(dest, str, len);
 
-	return dest;
+	return (dest);
 }
