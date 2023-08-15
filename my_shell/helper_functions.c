@@ -55,7 +55,7 @@ void *_memcpy(void *dest, const void *src, size_t n)
 	/* Copy the bytes */
 	char *d = (char *) dest;
 	const char *s = (const char *) src;
-	
+
 	for (size_t i = 0; i < n; i++)
 		d[i] = s[i];
 
@@ -76,7 +76,7 @@ char *_strdup(const char *str)
 	size_t len = _strlen(str) + 1;
 
 	char *dest = (char *) malloc(sizeof(char) * len);
-	
+
 	if (dest == NULL)
 		return (NULL);
 
