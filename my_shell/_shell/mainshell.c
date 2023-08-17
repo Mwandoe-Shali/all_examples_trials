@@ -69,8 +69,10 @@ int main(int ac, char **av)
 			return (-1);
 		}
 		else
-			execve(av[i], av, NULL);
+		{
+			execve(av[j], av, NULL);
 			return (0);
+		}
 	}
 	return (0);
 }
