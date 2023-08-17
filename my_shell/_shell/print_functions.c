@@ -23,8 +23,9 @@ int _putchar(char c)
  */
 int _puts(const char *str)
 {
+	int i;
 	/* Write the string to stdout one character at a time */
-	for (int i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		_putchar(str[i]);
 
 	/* Write a newline character to stdout */
@@ -70,11 +71,12 @@ int _printf(const char *format, ...)
 				count += _putchar(*format);
 				break;
 		}
-	}
-	else
-	{
-		/* Print the character */
-		count += _putchar(*format);
+	
+		else
+		{
+			/* Print the character */
+			count += _putchar(*format);
+		}
 	}
 
 	format++; /* Next character */
