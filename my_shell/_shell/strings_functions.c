@@ -48,15 +48,19 @@ char *_strcpy(char *dest, const char *src)
  */
 void *_memcpy(void *dest, const void *src, size_t n)
 {
+	size_t i;
+	char *d;
+	const char *s;
+	
 	/* Check the parameters */
 	if (dest == NULL || src == NULL)
 		return (NULL);
 
 	/* Copy the bytes */
-	char *d = (char *) dest;
-	const char *s = (const char *) src;
+	d = (char *) dest;
+	s = (const char *) src;
 
-	for (size_t i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 		d[i] = s[i];
 
 	/* Return the destination string */
