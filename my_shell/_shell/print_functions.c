@@ -53,6 +53,7 @@ int _printf(const char *format, ...)
 	{
 		/* Check for a format specifier */
 		if (*format == '%')
+		{
 			/* Get the next character in the format string */
 			format++;
 
@@ -73,9 +74,10 @@ int _printf(const char *format, ...)
 		}
 	
 		else
-		{
-			/* Print the character */
-			count += _putchar(*format);
+			{
+				/* Print the character */
+				count += _putchar(*format);
+			}
 		}
 	}
 
