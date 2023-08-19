@@ -53,32 +53,33 @@ int _printf(const char *format, ...)
 	{
 		/* Check for a format specifier */
 		if (*format == '%')
+		{
 			format++; /* Get next character in format string */
 
-		/* Switch on the format specifier */
-		switch (*format)
-		{
-			case 'c':
-				count += _putchar(va_arg(args, int)); /* character */
-				break;
-			case 's':
-				count += _puts(va_arg(args, const char *)); /* string */
-				break;
-			default:
-				/* Unknown format specifier */
-				count += _putchar('%');
-				count += _putchar(*format);
-				break;
-		}	
+			/* Switch on the format specifier */
+			switch (*format)
+			{
+				case 'c':
+					count += _putchar(va_arg(args, int)); /* character */
+					break;
+				case 's':
+					count += _puts(va_arg(args, const char *)); /* string */
+					break;
+				default:
+					/* Unknown format specifier */
+					count += _putchar('%');
+					count += _putchar(*format);
+					break;
+			}
+		}
 		else
 		{
 			/* Print the character */
 			count += _putchar(*format);
 		}
-		}
-	}
 
-	format++; /* Next character */
+		format++; /* Next character */
+	}
 
 	va_end(args); /* Clean up the va_list */
 	return (count); /* Return num of chars printed */
