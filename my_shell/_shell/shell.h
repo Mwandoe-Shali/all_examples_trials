@@ -18,4 +18,6 @@ int _puts(const char *str);
 int _putchar(char c);
 int _printf(const char *format, ...);
 
+extern char **environ;
+
 #endif /* SHELL_H */
