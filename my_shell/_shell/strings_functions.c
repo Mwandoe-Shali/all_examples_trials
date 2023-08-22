@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _strlen - Returns the length of a string
+ * str_len - Returns the length of a string
  * @str: Pointer to the string
  * Return: Length of the string
  */
-size_t _strlen(const char *str)
+int str_len(const char *str)
 {
 	size_t counter = 0;
 
